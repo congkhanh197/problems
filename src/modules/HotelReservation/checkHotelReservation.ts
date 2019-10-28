@@ -18,9 +18,10 @@ const checkHotelReservation = (
     bookingIndex++
   ) {
     // Check if departure of previous booking overlaps the arrival of next booking or not.
-    if (listDeparture[bookingIndex] > listArrival[bookingIndex + 1]) {
+    if (listDeparture[bookingIndex] > listArrival[bookingIndex + 1])
       countOfRooms++;
-    }
+    else 
+      countOfRooms--;
     if (countOfRooms > numOfRooms) return false;
   }
 
