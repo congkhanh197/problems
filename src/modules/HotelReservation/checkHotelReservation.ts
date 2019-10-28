@@ -1,3 +1,22 @@
+const _checkAvailableRoom = (
+  departures: number[],
+  arrivalTime: number,
+  numOfRooms: number,
+  bookingIndex: number,
+): number => {
+  // for (let i = 0; i < numOfRooms; i++) {
+
+  // }
+  return 1;
+};
+
+/**
+ * Check enough room for booking.
+ * @param arrivals Arrival time of booking.
+ * @param departures The departure time of booking.
+ * @param numOfRooms The count of rooms.
+ * @returns A boolean which tells whether it's possible to make a booking.
+ */
 const checkHotelReservation = (
   arrivals: number[],
   departures: number[],
@@ -18,9 +37,16 @@ const checkHotelReservation = (
     bookingIndex++
   ) {
     // Check if departure of previous booking overlaps the arrival of next booking or not.
-    if (listDeparture[bookingIndex] > listArrival[bookingIndex + 1])
+    if (
+      _checkAvailableRoom(
+        departures,
+        listArrival[bookingIndex],
+        numOfRooms,
+        bookingIndex,
+      )
+    )
       countOfRooms++;
-    else 
+    else if (listDeparture[bookingIndex] < listArrival[bookingIndex + 1])
       countOfRooms--;
     if (countOfRooms > numOfRooms) return false;
   }
